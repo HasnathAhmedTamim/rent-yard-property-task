@@ -295,3 +295,57 @@ input[type="checkbox"].checkbox-dark:checked {
 
     background: #fff;
 }
+
+/* --- FOOTER --- */
+.ry-footer {
+  width: 1440px;
+  height: 96px;
+  padding: 24px 80px;
+  background: #fff;
+  border-top: 2px solid #E0E0E0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.ry-footer-back {
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: underline;
+  color: #2E2D74;
+  background: none;
+  border: none;
+}
+
+.ry-footer-total {
+  color: #737373;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.ry-footer-total-amount {
+  font-weight: 600;
+  font-size: 18px;
+  color: #222;
+}
+
+.ry-footer-action {
+  width: 128px;
+  height: 47px;
+  border-radius: 12px;
+  background-color: #316EED;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  transition: background 0.2s, opacity 0.2s;
+  box-shadow: none;
+  border: none;
+}
+
+.ry-footer-action:disabled,
+.ry-footer-action[disabled] {
+  opacity: 0.32;
+  cursor: not-allowed;
+  background-color: #316EED;
+}
