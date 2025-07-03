@@ -1,0 +1,297 @@
+/* --- FONT IMPORTS & TAILWIND --- */
+@import url('https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&family=Syne:wght@400..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- TYPOGRAPHY & COMMON CLASSES --- */
+.custom-heading {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+.custom-item-title {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #272B35;
+}
+
+.custom-description {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    border-radius: 4px;
+    color: #777980;
+}
+
+.custom-back-button {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 0%;
+    color: #272B35;
+}
+
+/* --- HEADERS --- */
+.proof-header,
+.pm-header,
+.realtor-verification-header {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 500;
+    width: 1280px;
+    height: 54px;
+    padding: 14px 16px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom: 1px solid #E0E0E0;
+    background: #F4F4F4;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #6F6C6A;
+    box-sizing: border-box;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.pm-header {
+    font-size: 18px;
+}
+
+.realtor-verification-header {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* --- LABELS --- */
+.ownership-doc-label,
+.pm-label-title,
+.realtor-verification-label,
+.checkbox-label {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #272B35;
+}
+
+.checkbox-label {
+    font-size: 16px;
+}
+
+/* --- PDF ONLY LABEL --- */
+.pdf-only-label {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #6F6C6A;
+    flex: 1;
+    text-align: center;
+}
+
+/* --- CHECKBOX --- */
+input[type="checkbox"].checkbox-dark:checked {
+    accent-color: #272B35;
+}
+
+/* --- INPUT FIELDS --- */
+.realtor-licence-input,
+.pm-field {
+    width: 405.33px;
+    height: 48px;
+    padding-right: 16px;
+    padding-left: 16px;
+    gap: 10px;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E0E0E0;
+    font-family: 'Fustat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    box-sizing: border-box;
+    background: #fff;
+    color: #6F6C6A;
+}
+
+.pm-field {
+    width: 100%;
+    height: 48px;
+    gap: 10px;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E0E0E0;
+    padding-right: 16px;
+    padding-left: 16px;
+    background: #fff;
+    color: #6F6C6A;
+    font-family: 'Fustat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+/* --- PDF UPLOAD FIELDS --- */
+.realtor-pdf-upload,
+.ownership-pdf-upload,
+.pm-field.pdf-upload {
+    width: 405.33px;
+    height: 48px;
+    gap: 10px;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E0E0E0;
+    padding-right: 16px;
+    padding-left: 16px;
+    background: #F6F6F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.pm-field.pdf-upload .pdf-only-label {
+    flex: 1;
+    text-align: center;
+    color: #6F6C6A;
+    font-size: 14px;
+}
+
+/* --- LAYOUTS --- */
+.ownership-doc-layout {
+    width: 1280px;
+
+    gap: 16px;
+    padding-right: 16px;
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+
+
+.ownership-pdf-upload .pdf-only-label {
+    flex: 1;
+    text-align: center;
+    color: #6F6C6A;
+    font-size: 14px;
+}
+
+.ownership-checkbox-row {
+    width: 406px;
+    height: 23px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pm-company-layout {
+    width: 1280px;
+    min-height: 361px;
+    /* Use min-height instead of height */
+    gap: 16px;
+    border-radius: 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E0E0E0;
+    background: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 16px;
+}
+
+.pm-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.pm-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    height: 81px;
+    gap: 16px;
+    padding-right: 16px;
+    padding-left: 16px;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    align-items: center;
+    /* vertically center content */
+}
+
+.pm-grid-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: flex-start;
+}
+
+.pm-field-two {
+    width: 300px;
+    height: 48px;
+    gap: 10px;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E0E0E0;
+    padding-right: 16px;
+    padding-left: 16px;
+    background: #F6F6F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.pm-phone-container {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    
+    border-style: solid;
+    border-color: #E0E0E0;
+
+    box-sizing: border-box;
+}
+
+.pm-phone-flag {
+   
+    height: 24px;
+    border-radius: 12px 0 0 12px;
+    border: 1px solid #E0E0E0;
+
+    background: #fff;
+}
