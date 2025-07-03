@@ -43,8 +43,9 @@ export default function AmenitiesModal({ open, onClose, onAdd }) {
         >
           &times;
         </button>
-        <h3 className="text-base font-semibold mb-4">Community's amenity/features</h3>
+        <h3 className="modal-field-header mb-6">Amenities</h3>
         <form onSubmit={handleSubmit}>
+          <label className="modal-field-label mb-1">Amenity Name</label>
           <input
             type="text"
             placeholder="Search amenities"

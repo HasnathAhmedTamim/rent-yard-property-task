@@ -31,11 +31,11 @@ export default function RentFrequencyModal({ open, onClose, onAdd }) {
         >
           &times;
         </button>
-        <h3 className="text-base font-semibold mb-6">Rent frequency & payment reminder</h3>
+        <h3 className="modal-field-header mb-6">Rent Frequency</h3>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 Rent payment frequency<span className="text-red-500">*</span>
               </label>
               <select
@@ -51,7 +51,7 @@ export default function RentFrequencyModal({ open, onClose, onAdd }) {
               </select>
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 Rent Reminder/Statement date<span className="text-red-500">*</span>
               </label>
               <input
@@ -64,7 +64,7 @@ export default function RentFrequencyModal({ open, onClose, onAdd }) {
               />
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 Rent due date<span className="text-red-500">*</span>
               </label>
               <input

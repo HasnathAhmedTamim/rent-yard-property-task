@@ -23,8 +23,9 @@ export default function AboutPropertyModal({ open, onClose, onAdd }) {
         >
           &times;
         </button>
-        <h3 className="text-base font-semibold mb-6">About the property (optional)</h3>
+        <h3 className="modal-field-header mb-6">About Property</h3>
         <form onSubmit={handleSubmit}>
+          <label className="modal-field-label mb-1">Description</label>
           <textarea
             className="w-full border rounded-md px-3 py-2 text-sm min-h-[120px] resize-none"
             placeholder="Type message here"

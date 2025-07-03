@@ -33,9 +33,21 @@ export default function ApplicationAgreementModal({ open, onClose, onAdd }) {
         >
           &times;
         </button>
-        <h3 className="text-base font-semibold mb-6">Application agreement (optional)</h3>
+        <h3 className="modal-field-header mb-6">Application Agreement</h3>
         <form onSubmit={handleSubmit}>
           <div>
+            <label className="modal-field-label mb-1">Agreement Title</label>
+            <input
+              type="text"
+              className="w-full border rounded-md p-2 mb-4"
+              required
+            />
+            <label className="modal-field-label mb-1">Description</label>
+            <textarea
+              className="w-full border rounded-md p-2 mb-4"
+              rows="3"
+              required
+            ></textarea>
             <label className="block text-xs mb-1 font-medium">
               Upload agreement
             </label>

@@ -37,12 +37,12 @@ export default function LeasingInfoModal({ open, onClose, onAdd }) {
         >
           &times;
         </button>
-        <h3 className="text-base font-semibold mb-6">Leasing Info</h3>
+        <h3 className="modal-field-header mb-6">Leasing Information</h3>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs mb-1 font-medium">
-                Leasing manager name<span className="text-red-500">*</span>
+              <label className="modal-field-label mb-1">
+                Manager Name<span className="text-red-500">*</span>
               </label>
               <input
                 name="managerName"
@@ -53,8 +53,8 @@ export default function LeasingInfoModal({ open, onClose, onAdd }) {
               />
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
-                Leasing manager Phone number<span className="text-red-500">*</span>
+              <label className="modal-field-label mb-1">
+                Contact Number<span className="text-red-500">*</span>
               </label>
               <PhoneInput
                 country={"bd"}
@@ -68,8 +68,8 @@ export default function LeasingInfoModal({ open, onClose, onAdd }) {
               />
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
-                Leasing manager email<span className="text-red-500">*</span>
+              <label className="modal-field-label mb-1">
+                Email Address<span className="text-red-500">*</span>
               </label>
               <input
                 name="managerEmail"

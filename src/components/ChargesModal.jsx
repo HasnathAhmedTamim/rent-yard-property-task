@@ -31,13 +31,14 @@ export default function ChargesModal({ open, onClose, onAdd }) {
         >
           &times;
         </button>
-        <h3 className="text-base font-semibold mb-6">Charges</h3>
+        <h3 className="modal-field-header mb-6">Charges</h3>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="md:col-span-2 flex gap-4">
               <div className="flex-1">
-                <label className="block text-xs mb-1 font-medium">
-                  Application fee(one-time)<span className="text-red-500">*</span>
+                <label className="modal-field-label mb-1">
+                  Application fee(one-time)
+                  <span className="text-red-500">*</span>
                 </label>
                 <input
                   name="applicationFee"
@@ -77,7 +78,36 @@ export default function ChargesModal({ open, onClose, onAdd }) {
           </div>
           <div className="flex items-center mt-4 text-gray-500 text-xs">
             <span className="mr-2">
-              <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#888" strokeWidth="2"/><rect x="11" y="10" width="2" height="5" rx="1" fill="#888"/><rect x="11" y="7" width="2" height="2" rx="1" fill="#888"/></svg>
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="#888"
+                  strokeWidth="2"
+                />
+                <rect
+                  x="11"
+                  y="10"
+                  width="2"
+                  height="5"
+                  rx="1"
+                  fill="#888"
+                />
+                <rect
+                  x="11"
+                  y="7"
+                  width="2"
+                  height="2"
+                  rx="1"
+                  fill="#888"
+                />
+              </svg>
             </span>
             Type 0 if charges not applicable
           </div>

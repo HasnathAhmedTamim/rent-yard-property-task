@@ -39,11 +39,11 @@ export default function NearestStationModal({ open, onClose, onAdd }) {
         >
           &times;
         </button>
-        <h3 className="text-base font-semibold mb-6">Add nearest station</h3>
+        <h3 className="modal-field-header mb-6">Nearest Station</h3>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 Nearest station type<span className="text-red-500">*</span>
               </label>
               <select
@@ -59,7 +59,7 @@ export default function NearestStationModal({ open, onClose, onAdd }) {
               </select>
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 Distance from property<span className="text-red-500">*</span>
               </label>
               <div className="flex">
@@ -86,7 +86,7 @@ export default function NearestStationModal({ open, onClose, onAdd }) {
             </div>
           </div>
           <div>
-            <label className="block text-xs mb-1 font-medium">
+            <label className="modal-field-label mb-1">
               Nearest station name<span className="text-red-500">*</span>
             </label>
             <input

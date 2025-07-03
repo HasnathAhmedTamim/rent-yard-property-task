@@ -40,9 +40,22 @@ export default function EducationalInstitutionModal({ open, onClose, onAdd }) {
         >
           &times;
         </button>
-        <h3 className="text-base font-semibold mb-6">Add nearest educational institution</h3>
+        <h3 className="modal-field-header mb-6">Educational Institution</h3>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label className="modal-field-label mb-1">
+                Institution Name<span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                className="w-full border rounded-md px-3 py-2 text-sm"
+                placeholder="Enter name"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                required
+              />
+            </div>
             <div>
               <label className="block text-xs mb-1 font-medium">
                 Educational institution type<span className="text-red-500">*</span>
@@ -84,19 +97,6 @@ export default function EducationalInstitutionModal({ open, onClose, onAdd }) {
                 </select>
               </div>
             </div>
-          </div>
-          <div>
-            <label className="block text-xs mb-1 font-medium">
-              Educational institution name<span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              className="w-full border rounded-md px-3 py-2 text-sm"
-              placeholder="Enter name"
-              value={name}
-              onChange={e => setName(e.target.value)}
-              required
-            />
           </div>
           <div className="flex justify-end mt-6">
             <button

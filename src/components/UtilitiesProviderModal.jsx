@@ -34,37 +34,39 @@ export default function UtilitiesProviderModal({ open, onClose, onAdd }) {
         >
           &times;
         </button>
-        <h3 className="text-base font-semibold mb-6">Utilities provider</h3>
+        <h3 className="modal-field-header mb-6">Utilities Provider</h3>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-xs mb-1 font-medium">
-                Utility type<span className="text-red-500">*</span>
-              </label>
-              <select
-                className="w-full border rounded-md px-3 py-2 text-sm"
-                value={utilityType}
-                onChange={e => setUtilityType(e.target.value)}
-                required
-              >
-                <option value="">Select</option>
-                {UTILITY_TYPES.map((t) => (
-                  <option key={t} value={t}>{t}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="block text-xs mb-1 font-medium">
-                Provider company name<span className="text-red-500">*</span>
+              <label className="modal-field-label mb-1">
+                Provider Name<span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
                 className="w-full border rounded-md px-3 py-2 text-sm"
                 placeholder="Enter name"
                 value={providerName}
-                onChange={e => setProviderName(e.target.value)}
+                onChange={(e) => setProviderName(e.target.value)}
                 required
               />
+            </div>
+            <div>
+              <label className="modal-field-label mb-1">
+                Type<span className="text-red-500">*</span>
+              </label>
+              <select
+                className="w-full border rounded-md px-3 py-2 text-sm"
+                value={utilityType}
+                onChange={(e) => setUtilityType(e.target.value)}
+                required
+              >
+                <option value="">Select</option>
+                {UTILITY_TYPES.map((t) => (
+                  <option key={t} value={t}>
+                    {t}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           <div className="flex justify-end mt-6">

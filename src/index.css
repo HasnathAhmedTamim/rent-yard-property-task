@@ -280,7 +280,7 @@ input[type="checkbox"].checkbox-dark:checked {
     height: 48px;
     display: flex;
     align-items: center;
-    
+
     border-style: solid;
     border-color: #E0E0E0;
 
@@ -288,7 +288,7 @@ input[type="checkbox"].checkbox-dark:checked {
 }
 
 .pm-phone-flag {
-   
+
     height: 24px;
     border-radius: 12px 0 0 12px;
     border: 1px solid #E0E0E0;
@@ -298,54 +298,345 @@ input[type="checkbox"].checkbox-dark:checked {
 
 /* --- FOOTER --- */
 .ry-footer {
-  width: 1440px;
-  height: 96px;
-  padding: 24px 80px;
-  background: #fff;
-  border-top: 2px solid #E0E0E0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
+    width: 1440px;
+    height: 96px;
+    padding: 24px 80px;
+    background: #fff;
+    border-top: 2px solid #E0E0E0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .ry-footer-back {
-  font-weight: 600;
-  font-size: 16px;
-  text-decoration: underline;
-  color: #2E2D74;
-  background: none;
-  border: none;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: underline;
+    color: #2E2D74;
+    background: none;
+    border: none;
 }
 
 .ry-footer-total {
-  color: #737373;
-  font-size: 16px;
-  font-weight: 400;
+    color: #737373;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .ry-footer-total-amount {
-  font-weight: 600;
-  font-size: 18px;
-  color: #222;
+    font-weight: 600;
+    font-size: 18px;
+    color: #222;
 }
 
 .ry-footer-action {
-  width: 128px;
-  height: 47px;
-  border-radius: 12px;
-  background-color: #316EED;
-  font-size: 18px;
-  font-weight: 600;
-  color: #fff;
-  transition: background 0.2s, opacity 0.2s;
-  box-shadow: none;
-  border: none;
+    width: 128px;
+    height: 47px;
+    border-radius: 12px;
+    background-color: #316EED;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    transition: background 0.2s, opacity 0.2s;
+    box-shadow: none;
+    border: none;
 }
 
 .ry-footer-action:disabled,
 .ry-footer-action[disabled] {
-  opacity: 0.32;
-  cursor: not-allowed;
-  background-color: #316EED;
+    opacity: 0.32;
+    cursor: not-allowed;
+    background-color: #316EED;
+}
+
+.fustat-heading {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #272B35;
+}
+
+.condo-info-container {
+    width: 1440px;
+    margin: 0 auto;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: #fff;
+}
+
+.condo-info-fields-container {
+    width: 100%;
+    min-height: 558px;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.condo-gallery-container {
+    width: 1280px;
+    min-height: 394px;
+    gap: 24px;
+    border-radius: 16px;
+    background: #fff;
+    border: 1.5px solid #316EED;
+    margin-bottom: 32px;
+   
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #E0E0E0;
+}
+
+.gallery-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 8px;
+}
+
+.gallery-upload-row {
+    display: flex;
+    gap: 24px;
+}
+
+.gallery-featured-col {
+    width: 917px;
+    height: 198px;
+    gap: 24px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #fff;
+}
+
+/* Featured photos headline */
+.gallery-featured-col label {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #272B35;
+}
+
+.gallery-featured-upload {
+    width: 200px;
+    height: 200px;
+    border: 2px dashed #316EED;
+    border-radius: 12px;
+    background: #F6FAFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.2s;
+    margin-bottom: 8px;
+}
+
+.gallery-featured-upload:hover {
+    border-color: #1746A2;
+}
+
+.gallery-featured-upload svg {
+    margin-bottom: 8px;
+}
+
+.gallery-featured-upload-text {
+    font-size: 14px;
+    color: #222;
+    margin-top: 8px;
+}
+
+.gallery-featured-upload-subtext {
+    font-size: 12px;
+    color: #888;
+}
+
+.gallery-more-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* More photos headline */
+.gallery-more-col label {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #fff;
+    background: #272B35;
+    padding: 4px 12px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.gallery-more-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns */
+    grid-template-rows: repeat(2, 1fr);
+    /* 2 rows */
+    gap: 16px;
+}
+
+.gallery-more-upload {
+    width: 88px;
+    height: 88px;
+    border: 2px dashed #316EED;
+    border-radius: 12px;
+    background: #F6FAFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    gap: 6px;
+}
+
+.gallery-more-upload .plus {
+    font-size: 16px;
+    color: #316EED;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.gallery-more-upload img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    display: inline-block;
+}
+
+.infofield-headline {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #272B35;
+}
+
+.infofield-required {
+    color: #FF6A62;
+    font-weight: 600;
+    margin-left: 6px;
+    font-size: 15px;
+}
+
+.infofield-optional {
+    color: #6F6C6A;
+    margin-left: 6px;
+    font-size: 15px;
+}
+
+.infofield-add-btn {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #316EED;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: auto;
+    text-decoration-offset: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.infofield-add-btn:hover {
+    color: #1746A2;
+}
+
+.infofield-container {
+    width: 628px;
+    height: 66px;
+    gap: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.property-gallery-headline {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #272B35;
+    margin-bottom: 0;
+    display: inline;
+}
+
+.property-gallery-note {
+    color: #6F6C6A;
+    font-family: 'Fustat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0;
+    margin-left: 4px;
+    display: inline;
+}
+
+.custom-gallery-label {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #272B35;
+}
+
+.videos-section-custom {
+    border: 1px solid #E0E0E0;
+    
+    height: 66px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* Modal field header */
+.modal-field-header {
+  font-family: 'Fustat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #6F6C6A;
+}
+
+/* Modal field label */
+.modal-field-label {
+  font-family: 'Fustat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #272B35;
 }

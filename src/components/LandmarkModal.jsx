@@ -31,12 +31,12 @@ export default function LandmarkModal({ open, onClose, onAdd }) {
         >
           &times;
         </button>
-        <h3 className="text-base font-semibold mb-6">Add landmark</h3>
+        <h3 className="modal-field-header mb-6">Landmark</h3>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-xs mb-1 font-medium">
-                Landmark type<span className="text-red-500">*</span>
+              <label className="modal-field-label mb-1">
+                Landmark Name<span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -48,8 +48,8 @@ export default function LandmarkModal({ open, onClose, onAdd }) {
               />
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
-                Distance from property<span className="text-red-500">*</span>
+              <label className="modal-field-label mb-1">
+                Distance<span className="text-red-500">*</span>
               </label>
               <div className="flex">
                 <input

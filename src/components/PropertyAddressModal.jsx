@@ -37,11 +37,11 @@ export default function PropertyAddressModal({ open, onClose, onAdd }) {
         >
           &times;
         </button>
-        <h3 className="text-lg font-semibold mb-6">Property address</h3>
+        <h3 className="modal-field-header mb-6">Property Address</h3>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 Property name as identifier<span className="text-red-500">*</span>
               </label>
               <input
@@ -53,7 +53,7 @@ export default function PropertyAddressModal({ open, onClose, onAdd }) {
               />
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 Total apartment unit<span className="text-red-500">*</span>
               </label>
               <input
@@ -65,7 +65,7 @@ export default function PropertyAddressModal({ open, onClose, onAdd }) {
               />
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 Property website (optional)
               </label>
               <input
@@ -78,7 +78,7 @@ export default function PropertyAddressModal({ open, onClose, onAdd }) {
               />
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 Country/Region<span className="text-red-500">*</span>
               </label>
               <select
@@ -94,7 +94,7 @@ export default function PropertyAddressModal({ open, onClose, onAdd }) {
               </select>
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 Street address<span className="text-red-500">*</span>
               </label>
               <input
@@ -106,7 +106,7 @@ export default function PropertyAddressModal({ open, onClose, onAdd }) {
               />
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 Apt, suite, unit (if applicable)
               </label>
               <input
@@ -117,7 +117,7 @@ export default function PropertyAddressModal({ open, onClose, onAdd }) {
               />
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 City/Town<span className="text-red-500">*</span>
               </label>
               <input
@@ -129,7 +129,7 @@ export default function PropertyAddressModal({ open, onClose, onAdd }) {
               />
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 State/Territory<span className="text-red-500">*</span>
               </label>
               <select
@@ -146,7 +146,7 @@ export default function PropertyAddressModal({ open, onClose, onAdd }) {
               </select>
             </div>
             <div>
-              <label className="block text-xs mb-1 font-medium">
+              <label className="modal-field-label mb-1">
                 Zip code<span className="text-red-500">*</span>
               </label>
               <input

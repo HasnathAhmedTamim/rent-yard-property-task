@@ -19,24 +19,64 @@ const fields = [
   { label: "Property address", required: true, modal: "property", col: "left" },
   { label: "Leasing info", required: true, modal: "leasing", col: "left" },
   { label: "Charges", required: true, modal: "charges", col: "left" }, // <-- Add modal here
-  { label: "Rent frequency & payment reminder", required: true, modal: "rent", col: "left" },
-  { label: "Application agreement", required: false, modal: "agreement", col: "left" },
+  {
+    label: "Rent frequency & payment reminder",
+    required: true,
+    modal: "rent",
+    col: "left",
+  },
+  {
+    label: "Application agreement",
+    required: false,
+    modal: "agreement",
+    col: "left",
+  },
   { label: "About the property", required: false, modal: "about", col: "left" },
-  { label: "Community's amenity/features", required: false, modal: "amenities", col: "left" },
+  {
+    label: "Community's amenity/features",
+    required: false,
+    modal: "amenities",
+    col: "left",
+  },
 
   // Right column
-  { label: "Pet fees (Optional, add fees if you allow pet)", required: false, modal: "petfees", col: "right" },
+  {
+    label: "Pet fees (Optional, add fees if you allow pet)",
+    required: false,
+    modal: "petfees",
+    col: "right",
+  },
   { label: "Parking", required: false, modal: "parking", col: "right" },
-  { label: "Nearest educational institution (Optional but recommended)", required: false, modal: "education", col: "right" },
-  { label: "Nearest stations (Optional but recommended)", required: false, modal: "station", col: "right" },
-  { label: "Nearest landmark (Optional but recommended)", required: false, modal: "landmark", col: "right" },
-  { label: "Utilities provider (Optional but recommended)", required: false, modal: "utilities", col: "right" },
+  {
+    label: "Nearest educational institution (Optional but recommended)",
+    required: false,
+    modal: "education",
+    col: "right",
+  },
+  {
+    label: "Nearest stations (Optional but recommended)",
+    required: false,
+    modal: "station",
+    col: "right",
+  },
+  {
+    label: "Nearest landmark (Optional but recommended)",
+    required: false,
+    modal: "landmark",
+    col: "right",
+  },
+  {
+    label: "Utilities provider (Optional but recommended)",
+    required: false,
+    modal: "utilities",
+    col: "right",
+  },
 ];
 
 function getRows(fields) {
   // Pair left and right fields into rows
-  const left = fields.filter(f => f.col === "left");
-  const right = fields.filter(f => f.col === "right");
+  const left = fields.filter((f) => f.col === "left");
+  const right = fields.filter((f) => f.col === "right");
   const rows = [];
   for (let i = 0; i < Math.max(left.length, right.length); i++) {
     rows.push([left[i], right[i]]);
@@ -53,7 +93,7 @@ export default function CondoInfoForm() {
 
   // Helper to handle add/edit for each field
   const handleFieldAdd = (modal, value, idx = null) => {
-    setValues(prev => {
+    setValues((prev) => {
       // For array fields (like stations, amenities, etc)
       if (["station", "landmark", "education", "amenities"].includes(modal)) {
         const arr = Array.isArray(prev[modal]) ? [...prev[modal]] : [];
@@ -69,7 +109,7 @@ export default function CondoInfoForm() {
 
   // Helper to handle delete for array fields
   const handleFieldDelete = (modal, idx) => {
-    setValues(prev => {
+    setValues((prev) => {
       const arr = [...(prev[modal] || [])];
       arr.splice(idx, 1);
       return { ...prev, [modal]: arr };
@@ -78,42 +118,48 @@ export default function CondoInfoForm() {
 
   // Helper to handle delete for single fields
   const handleSingleDelete = (modal) => {
-    setValues(prev => ({ ...prev, [modal]: undefined }));
+    setValues((prev) => ({ ...prev, [modal]: undefined }));
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white px-8 py-6">
+    <div className="condo-info-container">
       {/* Section Title */}
-      <h2 className="text-2xl font-semibold mb-6">Condominiums information</h2>
+      <h2 className="fustat-heading mb-6">Condominiums information</h2>
 
-      {/* Grid of Addable Items */}
-      <div className="mb-8">
+      {/* Info Fields */}
+      <div className="condo-info-fields-container">
         {rows.map(([left, right], idx) => (
           <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
             {/* Left field */}
             {left && (
-              <div className="flex flex-col border rounded-2xl px-4 py-3 bg-white">
+              <div className="infofield-container">
                 <div className="flex justify-between items-center">
-                  <span className="font-medium text-base">
+                  <span className="infofield-headline">
                     {left.label}
                     {left.required ? (
-                      <span className="text-red-500 ml-1">(Required)</span>
+                      <span className="infofield-required">(Required)</span>
                     ) : (
-                      <span className="text-gray-400 ml-1">(Optional)</span>
+                      <span className="infofield-optional">(Optional)</span>
                     )}
                   </span>
                   {values[left.modal] ? (
                     <button
                       className="ml-2 p-1 rounded-full border border-blue-400 text-blue-500 hover:bg-blue-50 transition"
                       title="Edit"
-                      onClick={() => { setOpenModalField(left.modal); setEditIndex(null); }}
+                      onClick={() => {
+                        setOpenModalField(left.modal);
+                        setEditIndex(null);
+                      }}
                     >
                       <FiEdit size={18} />
                     </button>
                   ) : (
                     <button
-                      className="ml-2 text-blue-500 font-semibold hover:underline"
-                      onClick={() => { setOpenModalField(left.modal); setEditIndex(null); }}
+                      className="ml-2 infofield-add-btn"
+                      onClick={() => {
+                        setOpenModalField(left.modal);
+                        setEditIndex(null);
+                      }}
                     >
                       + Add
                     </button>
@@ -125,17 +171,20 @@ export default function CondoInfoForm() {
                     <hr className="my-2 border-gray-200" />
                     <div className="text-sm text-gray-900 leading-relaxed">
                       {/* If value is an object with manager/phone */}
-                      {typeof values[left.modal] === "object" && values[left.modal] !== null ? (
+                      {typeof values[left.modal] === "object" &&
+                      values[left.modal] !== null ? (
                         <>
                           {values[left.modal].manager && (
                             <div>
-                              Leasing manager: {values[left.modal].manager}, {values[left.modal].email}
+                              Leasing manager: {values[left.modal].manager},{" "}
+                              {values[left.modal].email}
                             </div>
                           )}
                           {values[left.modal].phone && (
                             <div>
-                              <span className="font-semibold">{values[left.modal].phone}</span>
-                              {" "}
+                              <span className="font-semibold">
+                                {values[left.modal].phone}
+                              </span>{" "}
                               Address(same as property)
                             </div>
                           )}
@@ -152,28 +201,34 @@ export default function CondoInfoForm() {
             )}
             {/* Right field */}
             {right && (
-              <div className="flex flex-col border rounded-lg px-4 py-3 bg-white">
+              <div className="infofield-container">
                 <div className="flex justify-between items-center">
-                  <span>
+                  <span className="infofield-headline">
                     {right.label}
                     {right.required ? (
-                      <span className="text-red-500 ml-1">(Required)</span>
+                      <span className="infofield-required">(Required)</span>
                     ) : (
-                      <span className="text-gray-400 ml-1">(Optional)</span>
+                      <span className="infofield-optional">(Optional)</span>
                     )}
                   </span>
                   {values[right.modal] ? (
                     <button
                       className="ml-2 p-1 rounded-full border border-blue-400 text-blue-500 hover:bg-blue-50 transition"
                       title="Edit"
-                      onClick={() => { setOpenModalField(right.modal); setEditIndex(null); }}
+                      onClick={() => {
+                        setOpenModalField(right.modal);
+                        setEditIndex(null);
+                      }}
                     >
                       <FiEdit size={18} />
                     </button>
                   ) : (
                     <button
-                      className="ml-2 text-blue-500 font-semibold hover:underline"
-                      onClick={() => { setOpenModalField(right.modal); setEditIndex(null); }}
+                      className="ml-2 infofield-add-btn"
+                      onClick={() => {
+                        setOpenModalField(right.modal);
+                        setEditIndex(null);
+                      }}
                     >
                       + Add
                     </button>
@@ -185,7 +240,10 @@ export default function CondoInfoForm() {
                     {/* Handle array fields */}
                     {Array.isArray(values[right.modal]) ? (
                       values[right.modal].map((item, i) => (
-                        <div key={i} className="flex items-center justify-between border-b py-1">
+                        <div
+                          key={i}
+                          className="flex items-center justify-between border-b py-1"
+                        >
                           <span>
                             {item.name || item.type || JSON.stringify(item)}
                           </span>
@@ -193,7 +251,10 @@ export default function CondoInfoForm() {
                             <button
                               className="text-blue-500 mr-2"
                               title="Edit"
-                              onClick={() => { setOpenModalField(right.modal); setEditIndex(i); }}
+                              onClick={() => {
+                                setOpenModalField(right.modal);
+                                setEditIndex(i);
+                              }}
                             >
                               <FiEdit size={18} />
                             </button>
@@ -232,41 +293,76 @@ export default function CondoInfoForm() {
       </div>
 
       {/* Property Gallery */}
-      <div className="border rounded-lg p-4 mb-6 bg-gray-50">
-        <div className="mb-2 font-medium">
-          Property gallery <span className="text-gray-400">(Its not unit photo)</span>*
+      <div className="condo-gallery-container ">
+        <div className="mb-2 videos-section-custom">
+          <span className="property-gallery-headline">Property gallery</span>
+          <span className="property-gallery-note">(Its not unit photo)</span>
+          <span
+            className="property-gallery-headline"
+            style={{ color: "#272B35" }}
+          >
+            *
+          </span>
         </div>
-        <div className="flex gap-4 mb-2">
-          <div className="flex flex-col items-center">
-            <label className="block text-xs mb-1">Featured photos*</label>
-            <div className="border-2 border-dashed border-blue-300 rounded-lg w-32 h-32 flex items-center justify-center cursor-pointer">
-              <span className="text-xs text-gray-400 text-center">
+        <div className="flex gap-6 mb-4 items-center">
+          {/* Upload cover photo */}
+          <div className="flex flex-col items-start" style={{ width: 220 }}>
+            <label className="gallery-featured-label custom-gallery-label mb-2">
+              Featured photos<span style={{ color: "#F00" }}>*</span>
+            </label>
+            <div className="gallery-featured-upload">
+              <img
+                src="/src/assets/upload.png"
+                alt="Upload"
+                className="gallery-upload-icon"
+                style={{ width: 40, height: 40 }}
+              />
+              <div className="gallery-featured-upload-text">
                 Upload cover photo
-                <br />
+              </div>
+              <div className="gallery-featured-upload-subtext">
                 (.jpg, .png only)
-              </span>
+              </div>
             </div>
           </div>
-          <div className="flex-1">
-            <label className="block text-xs mb-1">More photos (optional)</label>
-            <div className="grid grid-cols-5 gap-2">
-              {[...Array(10)].map((_, i) => (
-                <div
-                  key={i}
-                  className="border-2 border-dashed border-blue-300 rounded-lg w-16 h-16 flex items-center justify-center cursor-pointer"
-                >
-                  <span className="text-gray-300 text-xl">+</span>
+          {/* 2x2 grid for more featured photos */}
+          <div className="flex flex-col items-center justify-center">
+            <div className="grid grid-cols-2 grid-rows-2 gap-4 mt-7">
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="gallery-more-upload">
+                  <img
+                    src="/src/assets/upload.png"
+                    alt="Upload"
+                    className="gallery-upload-icon"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* More photos section */}
+          <div className="flex flex-col justify-center flex-1">
+            <label className="gallery-more-label custom-gallery-label mb-2">
+              More photos<span className="text-gray-400"> (optional)</span>
+            </label>
+            <div
+              className="gallery-more-grid"
+              style={{ gridTemplateColumns: "repeat(4, 1fr)" }}
+            >
+              {[...Array(8)].map((_, i) => (
+                <div key={i} className="gallery-more-upload">
+                  <img
+                    src="/src/assets/upload.png"
+                    alt="Upload"
+                    className="gallery-upload-icon"
+                  />
                 </div>
               ))}
             </div>
           </div>
         </div>
-        {/* Videos */}
-        <div className="mt-4">
-          <label className="block text-xs mb-1">Videos (optional)</label>
-          <div className="border-2 border-dashed border-gray-300 rounded-lg w-full h-12 flex items-center justify-center cursor-pointer">
-            <span className="text-gray-400">Upload video</span>
-          </div>
+        {/* videos */}
+        <div className=" videos-section-custom">
+          <span className="property-gallery-headline"> Videos (optional)</span>
         </div>
       </div>
 
@@ -274,80 +370,88 @@ export default function CondoInfoForm() {
       <PropertyAddressModal
         open={openModalField === "property"}
         onClose={() => setOpenModalField(null)}
-        onAdd={data => handleFieldAdd("property", data)}
+        onAdd={(data) => handleFieldAdd("property", data)}
         initialValue={values.property}
       />
       <LeasingInfoModal
         open={openModalField === "leasing"}
         onClose={() => setOpenModalField(null)}
-        onAdd={data => handleFieldAdd("leasing", data)}
+        onAdd={(data) => handleFieldAdd("leasing", data)}
         initialValue={values.leasing}
       />
       <ChargesModal
         open={openModalField === "charges"}
         onClose={() => setOpenModalField(null)}
-        onAdd={data => handleFieldAdd("charges", data)}
+        onAdd={(data) => handleFieldAdd("charges", data)}
         initialValue={values.charges}
       />
       <RentFrequencyModal
         open={openModalField === "rent"}
         onClose={() => setOpenModalField(null)}
-        onAdd={data => handleFieldAdd("rent", data)}
+        onAdd={(data) => handleFieldAdd("rent", data)}
         initialValue={values.rent}
       />
       <ApplicationAgreementModal
         open={openModalField === "agreement"}
         onClose={() => setOpenModalField(null)}
-        onAdd={data => handleFieldAdd("agreement", data)}
+        onAdd={(data) => handleFieldAdd("agreement", data)}
         initialValue={values.agreement}
       />
       <AboutPropertyModal
         open={openModalField === "about"}
         onClose={() => setOpenModalField(null)}
-        onAdd={data => handleFieldAdd("about", data)}
+        onAdd={(data) => handleFieldAdd("about", data)}
         initialValue={values.about}
       />
       <AmenitiesModal
         open={openModalField === "amenities"}
         onClose={() => setOpenModalField(null)}
-        onAdd={data => handleFieldAdd("amenities", data)}
+        onAdd={(data) => handleFieldAdd("amenities", data)}
         initialValue={values.amenities}
       />
       <PetFeesModal
         open={openModalField === "petfees"}
         onClose={() => setOpenModalField(null)}
-        onAdd={data => handleFieldAdd("petfees", data)}
+        onAdd={(data) => handleFieldAdd("petfees", data)}
         initialValue={values.petfees}
       />
       <ParkingModal
         open={openModalField === "parking"}
         onClose={() => setOpenModalField(null)}
-        onAdd={data => handleFieldAdd("parking", data)}
+        onAdd={(data) => handleFieldAdd("parking", data)}
         initialValue={values.parking}
       />
       <EducationalInstitutionModal
         open={openModalField === "education"}
         onClose={() => setOpenModalField(null)}
         onAdd={(data) => handleFieldAdd("education", data, editIndex)}
-        initialValue={editIndex !== null ? values.education?.[editIndex] : undefined}
+        initialValue={
+          editIndex !== null ? values.education?.[editIndex] : undefined
+        }
       />
       <NearestStationModal
         open={openModalField === "station"}
         onClose={() => setOpenModalField(null)}
-        onAdd={data => handleFieldAdd("station", data, editIndex)}
-        initialValue={editIndex !== null ? values.station?.[editIndex] : undefined}
+        onAdd={(data) => handleFieldAdd("station", data, editIndex)}
+        initialValue={
+          editIndex !== null ? values.station?.[editIndex] : undefined
+        }
       />
       <LandmarkModal
         open={openModalField === "landmark"}
         onClose={() => setOpenModalField(null)}
         onAdd={(data) => handleFieldAdd("landmark", data, editIndex)}
-        initialValue={editIndex !== null ? values.landmark?.[editIndex] : undefined}
+        initialValue={
+          editIndex !== null ? values.landmark?.[editIndex] : undefined
+        }
       />
       <UtilitiesProviderModal
         open={openModalField === "utilities"}
         onClose={() => setOpenModalField(null)}
-        onAdd={data => handleFieldAdd("utilities", data, editIndex)}
-        initialValue={editIndex !== null ? values.utilities?.[editIndex] : undefined}
+        onAdd={(data) => handleFieldAdd("utilities", data, editIndex)}
+        initialValue={
+          editIndex !== null ? values.utilities?.[editIndex] : undefined
+        }
       />
       {/* Add more modals for other fields as needed */}
     </div>

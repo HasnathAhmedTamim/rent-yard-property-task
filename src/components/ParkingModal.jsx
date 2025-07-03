@@ -28,7 +28,7 @@ export default function ParkingModal({ open, onClose, onAdd }) {
         >
           &times;
         </button>
-        <h3 className="text-base font-semibold mb-6">Parking</h3>
+        <h3 className="modal-field-header mb-6">Parking</h3>
         <form onSubmit={handleSubmit}>
           <div className="flex items-center gap-4 mb-4  ">
             <label className="flex items-center gap-10 text-xs font-medium min-w-max border rounded-md px-3 py-2 ">
